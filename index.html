@@ -236,23 +236,54 @@
   <!-- Add i18next scripts -->
   <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/i18next@23.8.2/dist/umd/i18next.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/i18next-http-backend@2.4.2/dist/umd/i18nextHttpBackend.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/i18next-browser-languagedetector@7.2.0/dist/umd/i18nextBrowserLanguageDetector.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/jquery-i18next@1.2.1/dist/umd/jquery-i18next.min.js"></script>
   <script>
+    // Load translations directly
+    const resources = {
+      en: {
+        translation: {
+          "title": "What is Female Fairness?",
+          "features": {
+            "saveMoney": "Save money on hidden health costs",
+            "trackExpenses": "Track expenses you never knew were costing you",
+            "control": "Take control of your financial health",
+            "empower": "Empower your future"
+          },
+          "tagline": "Fair health. Fair wealth. Female Fairness.",
+          "newsletter": {
+            "label": "Enter your email",
+            "submit": "Subscribe"
+          }
+        }
+      },
+      da: {
+        translation: {
+          "title": "Hvad er Female Fairness?",
+          "features": {
+            "saveMoney": "Spar penge på skjulte sundhedsudgifter",
+            "trackExpenses": "Følg udgifter du aldrig vidste kostede dig penge",
+            "control": "Tag kontrol over din økonomiske sundhed",
+            "empower": "Styrk din fremtid"
+          },
+          "tagline": "Fair sundhed. Fair velstand. Female Fairness.",
+          "newsletter": {
+            "label": "Indtast din email",
+            "submit": "Tilmeld"
+          }
+        }
+      }
+    };
+
     // Initialize i18next
     window.addEventListener('load', function() {
       i18next
-        .use(i18nextHttpBackend)
         .use(i18nextBrowserLanguageDetector)
         .init({
           debug: true,
           fallbackLng: 'da',
-          load: 'languageOnly',
-          preload: ['en', 'da'],
-          backend: {
-            loadPath: 'locales/{{lng}}/translation.json'
-          }
+          resources: resources,
+          load: 'languageOnly'
         }).then(function(t) {
           // Initialize jquery-i18next
           jqueryI18next.init(i18next, $, { useOptionsAttr: true });
