@@ -37,15 +37,25 @@
     }
 
     h1 {
-      font-size: 3.5rem;
-      margin-bottom: 3rem;
+      font-size: 2.75rem;
+      margin-bottom: 1.5rem;
       color: var(--text-color);
       font-weight: 500;
     }
 
+    .description {
+      font-size: 1.2rem;
+      margin-bottom: 3rem;
+      color: var(--text-color);
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.8;
+    }
+
     .features {
       display: flex;
-      flex-wrap: wrap;
+      flex-direction: column;
       gap: 2rem;
       margin: 3rem 0;
       justify-content: center;
@@ -62,7 +72,7 @@
       transition: transform 0.2s;
       flex: 1;
       min-width: 300px;
-      max-width: calc(50% - 1rem);
+      max-width: 100%;
     }
 
     .feature:hover {
@@ -187,6 +197,9 @@
 <body>
   <div class="container">
     <h1 data-i18n="title">What is Female Fairness?</h1>
+    <p class="description" data-i18n="description"></p>
+    <h2 style="font-size: 1.5rem; margin-bottom: 2rem; color: var(--primary-color); font-weight: 500;" data-i18n="newsletter.title">Tilmeld dig - og få tidlig adgang</h2>
+    <p style="font-size: 1.1rem; margin-bottom: 3rem; color: var(--text-color);" data-i18n="newsletter.description">Vær blandt de første, der prøver vores sundheds beregner - skabt til at synliggøre de skjulte omkostninger ved at være kvinde.</p>
 
     <div class="features">
       <div class="feature">
@@ -244,6 +257,7 @@
       en: {
         translation: {
           "title": "What is Female Fairness?",
+          "description": "Progress in closing the economic gap between women and men is too slow. That's why we're accelerating change - by helping women track their health expenses, understand where their money goes, take action, and reclaim what they deserve.",
           "features": {
             "saveMoney": "Save money on hidden health costs",
             "trackExpenses": "Track expenses you never knew were costing you",
@@ -252,6 +266,8 @@
           },
           "tagline": "Fair health. Fair wealth. Female Fairness.",
           "newsletter": {
+            "title": "Subscribe to get early access",
+            "description": "Be among the first to try our health calculator - created to highlight the hidden costs of being a woman.",
             "label": "Enter your email",
             "submit": "Subscribe"
           }
@@ -259,7 +275,8 @@
       },
       da: {
         translation: {
-          "title": "Hvad er Female Fairness?",
+          "title": "Det begynder med Female Fairness",
+          "description": "Det går for langsomt med at lukke det økonomiske gab mellem kvinder og mænd. Derfor sætter vi farten op - ved at hjælpe kvinder med at følge deres sundhedsudgifter, få overblik over hvor pengene forsvinder hen, tage handling og få tilbage hvad de har fortjent.",
           "features": {
             "saveMoney": "Spar penge på skjulte sundhedsudgifter",
             "trackExpenses": "Følg udgifter du aldrig vidste kostede dig penge",
@@ -268,6 +285,8 @@
           },
           "tagline": "Fair sundhed. Fair velstand. Female Fairness.",
           "newsletter": {
+            "title": "Tilmeld dig - og få tidlig adgang",
+            "description": "Vær blandt de første, der prøver vores sundheds beregner - skabt til at synliggøre de skjulte omkostninger ved at være kvinde.",
             "label": "Indtast din email",
             "submit": "Tilmeld"
           }
