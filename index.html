@@ -197,9 +197,9 @@
 <body>
   <div class="container">
     <h1 data-i18n="title">What is Female Fairness?</h1>
-    <p class="description" data-i18n="description"></p>
-    <h2 style="font-size: 1.5rem; margin-bottom: 2rem; color: var(--primary-color); font-weight: 500;" data-i18n="newsletter.title">Tilmeld dig - og få tidlig adgang</h2>
-    <p style="font-size: 1.1rem; margin-bottom: 3rem; color: var(--text-color);" data-i18n="newsletter.description">Vær blandt de første, der prøver vores sundheds beregner - skabt til at synliggøre de skjulte omkostninger ved at være kvinde.</p>
+    <p class="description" data-i18n="description">Progress in closing the economic gap between women and men is too slow. That's why we're accelerating change - by helping women track their health expenses, understand where their money goes, take action, and reclaim what they deserve.</p>
+    <h2 style="font-size: 1.5rem; margin-bottom: 2rem; color: var(--primary-color); font-weight: 500;" data-i18n="newsletter.title">Subscribe to get early access</h2>
+    <p style="font-size: 1.1rem; margin-bottom: 3rem; color: var(--text-color);" data-i18n="newsletter.description">Be among the first to try our health calculator - created to highlight the hidden costs of being a woman.</p>
 
     <div class="features">
       <div class="feature">
@@ -267,24 +267,24 @@
           }
         }
       },
-      da: {
-        translation: {
-          "title": "Det begynder med Female Fairness",
-          "description": "Det går for langsomt med at lukke det økonomiske gab mellem kvinder og mænd. Derfor sætter vi farten op - ved at hjælpe kvinder med at følge deres sundhedsudgifter, få overblik over hvor pengene forsvinder hen, tage handling og få tilbage hvad de har fortjent.",
-          "features": {
-            "trackExpenses": "Følg dine sundhedsudgifter",
-            "tips": "Få økonomiske tips og indsigter",
-            "earn": "Tjen FF credits til dine sundhedsprodukter",
-            "empower": "Styrk din fremtid"
-          },
-          "tagline": "Fair sundhed. Fair velstand. Female Fairness.",
-          "newsletter": {
-            "title": "Tilmeld dig - og få tidlig adgang",
-            "description": "Vær blandt de første, der prøver vores sundheds beregner - skabt til at synliggøre de skjulte omkostninger ved at være kvinde.",
-            "label": "Indtast din email",
-            "submit": "Tilmeld"
-          }
-        }
+      // da: {
+      //   translation: {
+      //     "title": "Det begynder med Female Fairness",
+      //     "description": "Det går for langsomt med at lukke det økonomiske gab mellem kvinder og mænd. Derfor sætter vi farten op - ved at hjælpe kvinder med at følge deres sundhedsudgifter, få overblik over hvor pengene forsvinder hen, tage handling og få tilbage hvad de har fortjent.",
+      //     "features": {
+      //       "trackExpenses": "Følg dine sundhedsudgifter",
+      //       "tips": "Få økonomiske tips og indsigter",
+      //       "earn": "Tjen FF credits til dine sundhedsprodukter",
+      //       "empower": "Styrk din fremtid"
+      //     },
+      //     "tagline": "Fair sundhed. Fair velstand. Female Fairness.",
+      //     "newsletter": {
+      //       "title": "Tilmeld dig - og få tidlig adgang",
+      //       "description": "Vær blandt de første, der prøver vores sundheds beregner - skabt til at synliggøre de skjulte omkostninger ved at være kvinde.",
+      //       "label": "Indtast din email",
+      //       "submit": "Tilmeld"
+      //     }
+      //   }
       }
     };
 
@@ -294,7 +294,7 @@
         .use(i18nextBrowserLanguageDetector)
         .init({
           debug: true,
-          fallbackLng: 'da',
+          fallbackLng: 'en',
           resources: resources,
           load: 'languageOnly'
         }).then(function(t) {
