@@ -186,39 +186,39 @@
 
 <body>
   <div class="container">
-    <h1>What is Female Fairness?</h1>
+    <h1 data-i18n="title">What is Female Fairness?</h1>
 
     <div class="features">
       <div class="feature">
         <div class="feature-icon">
           <i class="fas fa-piggy-bank"></i>
         </div>
-        <div class="feature-text">Save money on hidden health costs</div>
+        <div class="feature-text" data-i18n="features.saveMoney">Save money on hidden health costs</div>
       </div>
 
       <div class="feature">
         <div class="feature-icon">
           <i class="fas fa-tasks"></i>
         </div>
-        <div class="feature-text">Track expenses you never knew were costing you</div>
+        <div class="feature-text" data-i18n="features.trackExpenses">Track expenses you never knew were costing you</div>
       </div>
 
       <div class="feature">
         <div class="feature-icon">
           <i class="fas fa-heartbeat"></i>
         </div>
-        <div class="feature-text">Take control of your financial health</div>
+        <div class="feature-text" data-i18n="features.control">Take control of your financial health</div>
       </div>
 
       <div class="feature">
         <div class="feature-icon">
           <i class="fas fa-arrow-trend-up"></i>
         </div>
-        <div class="feature-text">Empower your future</div>
+        <div class="feature-text" data-i18n="features.empower">Empower your future</div>
       </div>
     </div>
 
-    <div class="tagline">
+    <div class="tagline" data-i18n="tagline">
       Fair health. Fair wealth. Female Fairness.
     </div>
 
@@ -226,12 +226,37 @@
       <form action="https://buttondown.com/api/emails/embed-subscribe/femalefairness" method="post" target="popupwindow"
         onsubmit="window.open('https://buttondown.com/femalefairness', 'popupwindow')"
         class="embeddable-buttondown-form">
-        <label for="bd-email">Enter your email</label>
+        <label for="bd-email" data-i18n="newsletter.label">Enter your email</label>
         <input type="email" name="email" id="bd-email" />
-        <input type="submit" value="Subscribe" />
+        <input type="submit" data-i18n="[value]newsletter.submit" value="Subscribe" />
       </form>
     </div>
   </div>
+
+  <!-- Add i18next scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/i18next@23.8.2/dist/umd/i18next.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/i18next-browser-languagedetector@7.2.0/dist/umd/i18nextBrowserLanguageDetector.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/i18next-http-backend@2.4.3/dist/umd/i18nextHttpBackend.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery-i18next@1.2.1/dist/umd/jquery-i18next.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script>
+    // Initialize i18next
+    i18next
+      .use(i18nextHttpBackend)
+      .use(i18nextBrowserLanguageDetector)
+      .init({
+        debug: true,
+        fallbackLng: 'da',
+        backend: {
+          loadPath: '/locales/{{lng}}/translation.json'
+        }
+      }).then(function(t) {
+        // Initialize jquery-i18next
+        jqueryI18next.init(i18next, $, { useOptionsAttr: true });
+        // Localize the page
+        $('body').localize();
+      });
+  </script>
 </body>
 
 </html>
