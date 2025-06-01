@@ -234,28 +234,32 @@
   </div>
 
   <!-- Add i18next scripts -->
-  <script src="https://cdn.jsdelivr.net/npm/i18next@23.8.2/dist/umd/i18next.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/i18next-browser-languagedetector@7.2.0/dist/umd/i18nextBrowserLanguageDetector.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/i18next-http-backend@2.4.3/dist/umd/i18nextHttpBackend.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/jquery-i18next@1.2.1/dist/umd/jquery-i18next.min.js"></script>
   <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/i18next@23.8.2/dist/umd/i18next.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/i18next-http-backend@2.4.2/dist/umd/i18nextHttpBackend.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/i18next-browser-languagedetector@7.2.0/dist/umd/i18nextBrowserLanguageDetector.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery-i18next@1.2.1/dist/umd/jquery-i18next.min.js"></script>
   <script>
     // Initialize i18next
-    i18next
-      .use(i18nextHttpBackend)
-      .use(i18nextBrowserLanguageDetector)
-      .init({
-        debug: true,
-        fallbackLng: 'da',
-        backend: {
-          loadPath: '/locales/{{lng}}/translation.json'
-        }
-      }).then(function(t) {
-        // Initialize jquery-i18next
-        jqueryI18next.init(i18next, $, { useOptionsAttr: true });
-        // Localize the page
-        $('body').localize();
-      });
+    window.addEventListener('load', function() {
+      i18next
+        .use(i18nextHttpBackend)
+        .use(i18nextBrowserLanguageDetector)
+        .init({
+          debug: true,
+          fallbackLng: 'da',
+          load: 'languageOnly',
+          preload: ['en', 'da'],
+          backend: {
+            loadPath: 'locales/{{lng}}/translation.json'
+          }
+        }).then(function(t) {
+          // Initialize jquery-i18next
+          jqueryI18next.init(i18next, $, { useOptionsAttr: true });
+          // Localize the page
+          $('body').localize();
+        });
+    });
   </script>
 </body>
 
