@@ -25,7 +25,7 @@
 
     body {
       font-family: 'Inter', sans-serif;
-      background-color: var(--accent-soft);
+      background-color: var(--background-color);
       color: var(--text-color);
       line-height: 1.6;
       padding: 2rem;
@@ -117,14 +117,23 @@
       background: var(--card-bg);
       border-radius: 20px;
       box-shadow: 0 8px 20px rgba(0, 0, 0, 0.04);
+      width: fit-content;
+      margin-left: auto;
+      margin-right: auto;
     }
 
     .newsletter form {
       display: flex;
       flex-direction: column;
       gap: 1.5rem;
-      max-width: 400px;
-      margin: 0 auto;
+      max-width: 700px;
+      margin: 0;
+    }
+
+    .newsletter .input-group {
+      display: flex;
+      gap: 1rem;
+      width: 100%;
     }
 
     .newsletter label {
@@ -143,6 +152,8 @@
       transition: all 0.2s ease;
       background: var(--accent-soft);
       color: var(--text-color);
+      flex: 1;
+      min-width: 0;
     }
 
     .newsletter input[type="email"]:focus {
@@ -242,8 +253,10 @@
         onsubmit="window.open('https://buttondown.com/femalefairness', 'popupwindow')"
         class="embeddable-buttondown-form">
         <label for="bd-email" data-i18n="newsletter.label">Enter your email</label>
-        <input type="email" name="email" id="bd-email" />
-        <input type="submit" data-i18n="[value]newsletter.submit" value="Subscribe" />
+        <div class="input-group">
+          <input type="email" name="email" id="bd-email" />
+          <input type="submit" data-i18n="[value]newsletter.submit" value="Subscribe" />
+        </div>
       </form>
     </div>
   </div>
