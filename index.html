@@ -145,6 +145,7 @@
       text-align: left;
     }
 
+    .newsletter input[type="text"],
     .newsletter input[type="email"] {
       padding: 1.25rem;
       border: 2px solid #e0e0e0;
@@ -159,11 +160,30 @@
       min-width: 0;
     }
 
+    .newsletter input[type="text"]:focus,
     .newsletter input[type="email"]:focus {
       outline: none;
       border-color: var(--primary-color);
       background: white;
       box-shadow: 0 4px 12px rgba(46, 125, 50, 0.1);
+    }
+
+    .newsletter .checkbox-group {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-top: 0.5rem;
+    }
+
+    .newsletter input[type="checkbox"] {
+      width: 20px;
+      height: 20px;
+      accent-color: var(--primary-color);
+    }
+
+    .newsletter .checkbox-label {
+      font-size: 1rem;
+      font-weight: 500;
     }
 
     .newsletter input[type="submit"] {
@@ -256,10 +276,18 @@
       <form action="https://buttondown.com/api/emails/embed-subscribe/femalefairness" method="post" target="popupwindow"
         onsubmit="window.open('https://buttondown.com/femalefairness', 'popupwindow')"
         class="embeddable-buttondown-form">
+        <label for="bd-name" data-i18n="newsletter.nameLabel">Your name</label>
+        <input type="text" name="metadata__name" id="name" />
+        
         <label for="bd-email" data-i18n="newsletter.label">Enter your email</label>
         <div class="input-group">
           <input type="email" name="email" id="bd-email" />
           <input type="submit" data-i18n="[value]newsletter.submit" value="Subscribe" />
+        </div>
+        
+        <div class="checkbox-group">
+          <input type="checkbox" name="metadata__early-tester" id="early-tester" />
+          <label for="early-tester" class="checkbox-label" data-i18n="newsletter.earlyTester">I want to be an early tester</label>
         </div>
       </form>
     </div>
@@ -287,8 +315,10 @@
           "newsletter": {
             "title": "Subscribe to get early access",
             "description": "Be among the first to try our health calculator - created to highlight the hidden costs of being a woman.",
+            "nameLabel": "Your name",
             "label": "Enter your email",
-            "submit": "Subscribe"
+            "submit": "Subscribe",
+            "earlyTester": "I want to be an early tester"
           }
         }
       },
@@ -306,8 +336,10 @@
           "newsletter": {
             "title": "Tilmeld dig - og få tidlig adgang",
             "description": "Vær blandt de første, der prøver vores sundheds beregner - skabt til at synliggøre de skjulte omkostninger ved at være kvinde.",
+            "nameLabel": "Dit navn",
             "label": "Indtast din email",
-            "submit": "Tilmeld"
+            "submit": "Tilmeld",
+            "earlyTester": "Jeg vil gerne være tidlig tester"
           }
         }
       }
