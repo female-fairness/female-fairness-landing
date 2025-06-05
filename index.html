@@ -47,6 +47,7 @@
       color: var(--text-color);
       font-family: 'Playfair Display', serif;
       font-weight: 600;
+      white-space: nowrap;
     }
 
     .description {
@@ -315,28 +316,25 @@
   <script>
     // Load translations directly
     const resources = {
-      en: {
-        translation: {
-          "title": "JOIN THE MOVEMENT",
-          "description": "Be part of the change toward fair health and wealth.",
-          "description2": "Sign up to be the first to try our health cost calculator and get early access.",
-          "newsletter": {
-            "description": "Sign up to be the first to try our health cost calculator and get early access.",
-            "nameLabel": "What's your name?",
-            "label": "Email address",
-            "submit": "SIGN ME UP",
-            "earlyTester": "I want to be an early tester"
-          }
-        }
-      },
+      // en: {
+      //   translation: {
+      //     "title": "IT BEGINS WITH FEMALE FAIRNESS",
+      //     "description": "Be part of the change toward fair health and wealth.",
+      //     "newsletter": {
+      //       "description": "Sign up to be the first to try our health cost calculator and get early access.",
+      //       "nameLabel": "What's your name?",
+      //       "label": "Email address",
+      //       "submit": "SIGN ME UP",
+      //       "earlyTester": "I want to be an early tester"
+      //     }
+      //   }
+      // },
       da: {
         translation: {
-          "title": "DELTAG I BEVÆGELSEN",
-          "description": "Vær med til at skabe en fair sundhed og velstand.",
-          "description2": "Tilmeld dig for at være blandt de første, der prøver vores sundheds beregner og få tidlig adgang.",
+          "title": "Det begynder med Female Fairness",
+          "description": "Det går for langsomt med at lukke det økonomiske gab mellem kvinder og mænd. Derfor sætter vi farten op - ved at hjælpe kvinder med at følge deres sundhedsudgifter, få overblik over hvor pengene forsvinder hen, tage handling og få tilbage hvad de har fortjent.",
           "newsletter": {
-            "title": "Tilmeld dig for at få tidlig adgang",
-            "description": "Ingen spam – bare smarte værktøjer og oplysninger for kvinder, der vil have fair økonomi.",
+            "description": "Vær blandt de første, der prøver vores sundhedsberegner - skabt til at synliggøre de skjulte omkostninger ved at være kvinde.",
             "nameLabel": "Hvad er dit navn?",
             "label": "Email adresse",
             "submit": "TILMELD DIG",
@@ -352,7 +350,7 @@
         .use(i18nextBrowserLanguageDetector)
         .init({
           debug: true,
-          fallbackLng: 'en',
+          fallbackLng: 'da',
           resources: resources,
           load: 'languageOnly'
         }).then(function(t) {
