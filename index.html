@@ -12,8 +12,8 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <style>
     :root {
-      --primary-color: #2e7d32;
-      --background-color: #f0f7f1;
+      --primary-color: #C89F5A;
+      --background-color: #fff;
       --text-color: #333;
       --accent-soft: #f7f3f0;
       --card-bg: #ffffff;
@@ -170,7 +170,7 @@
       border: 1px solid #e0e0e0;
       /* border-radius: 12px; */
       font-size: 1.25rem;
-      font-weight: 500;
+      font-weight: 300;
       font-family: 'Inter', sans-serif;
       transition: all 0.2s ease;
       background: #fffefc;
@@ -259,7 +259,7 @@
     }
 
     .newsletter input[type="submit"]:hover {
-      background-color: #1b5e20;
+      background-color: #c8a05ad0;
       transform: translateY(-2px);
       box-shadow: 0 6px 16px rgba(46, 125, 50, 0.2);
     }
@@ -296,34 +296,87 @@
         width: 100%;
       }
     }
+
+    .split-wrapper {
+      display: flex;
+      width: 100vw;
+      height: 100vh;
+      min-height: 100vh;
+    }
+    .split-left, .split-right {
+      flex: 1 1 0;
+      width: 50vw;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .split-left {
+      background: #f7f3f0 url('assets/flower-bg.png') center center/cover no-repeat;
+      position: relative;
+      overflow: hidden;
+    }
+    .split-left::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(255,255,255,0.15); /* adjust opacity here */
+      pointer-events: none;
+    }
+    .split-right {
+      background: var(--background-color);
+      overflow-y: auto;
+    }
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    @media (max-width: 900px) {
+      .split-wrapper {
+        flex-direction: column;
+      }
+      .split-left, .split-right {
+        width: 100vw;
+        height: 50vh;
+      }
+      .container {
+        max-width: 95vw;
+      }
+    }
   </style>
 </head>
 
 <body>
-  <div class="container">
-    <h1 data-i18n="title">Take control of your hidden health costs</h1>
-    <p class="description" data-i18n="subtitle" style="margin-bottom: 1.5rem; width: 50%;">Be part of the change toward fair health and wealth.</p>
-    <p class="description" data-i18n="description" style="margin-bottom: 1.5rem;">Be part of the change toward fair health and wealth.</p>
-    <p class="newsletter-description" data-i18n="description2" style="margin-bottom: 1.5rem;">Be part of the change toward fair health and wealth.</p>
-    <p class="newsletter-description" data-i18n="newsletter.description">Be among the first to try our health calculator - created to highlight the hidden costs of being a woman.</p>
-
-
-    <div class="newsletter">
-      <form action="https://buttondown.com/api/emails/embed-subscribe/femalefairness" method="post" target="popupwindow"
-        onsubmit="window.open('https://buttondown.com/femalefairness', 'popupwindow')"
-        class="embeddable-buttondown-form">
-        <label for="bd-name" data-i18n="newsletter.nameLabel">What's your name?</label>
-        <input type="text" name="metadata__name" id="name" />
-        
-        <label for="bd-email" style="margin-top: 1.5rem;" data-i18n="newsletter.label">Your email address</label>
-        <input type="email" name="email" id="bd-email" />
-        <input type="submit" data-i18n="[value]newsletter.submit" value="Subscribe" />
-        
-        <div class="checkbox-group">
-          <input type="checkbox" name="metadata__early-tester" id="early-tester" />
-          <label for="early-tester" class="checkbox-label" data-i18n="newsletter.earlyTester">I want to be an early tester</label>
+  <div class="split-wrapper">
+    <div class="split-left">
+    </div>
+    <div class="split-right">
+      <div class="container">
+        <h1 data-i18n="title">Take control of your hidden health costs</h1>
+        <p class="description" data-i18n="subtitle" style="margin-bottom: 1.5rem; width: 50%;">Be part of the change toward fair health and wealth.</p>
+        <p class="description" data-i18n="description" style="margin-bottom: 1.5rem;">Be part of the change toward fair health and wealth.</p>
+        <p class="newsletter-description" data-i18n="description2" style="margin-bottom: 1.5rem;">Be part of the change toward fair health and wealth.</p>
+        <p class="newsletter-description" data-i18n="newsletter.description">Be among the first to try our health calculator - created to highlight the hidden costs of being a woman.</p>
+        <div class="newsletter">
+          <form action="https://buttondown.com/api/emails/embed-subscribe/femalefairness" method="post" target="popupwindow"
+            onsubmit="window.open('https://buttondown.com/femalefairness', 'popupwindow')"
+            class="embeddable-buttondown-form">
+            <label for="bd-name" data-i18n="newsletter.nameLabel">What's your name?</label>
+            <input type="text" name="metadata__name" id="name" />
+            <label for="bd-email" style="margin-top: 1.5rem;" data-i18n="newsletter.label">Your email address</label>
+            <input type="email" name="email" id="bd-email" />
+            <input type="submit" data-i18n="[value]newsletter.submit" value="Subscribe" />
+            <div class="checkbox-group">
+              <input type="checkbox" name="metadata__early-tester" id="early-tester" />
+              <label for="early-tester" class="checkbox-label" data-i18n="newsletter.earlyTester">I want to be an early tester</label>
+            </div>
+          </form>
         </div>
-      </form>
+      </div>
     </div>
   </div>
 
