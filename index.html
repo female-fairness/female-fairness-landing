@@ -40,8 +40,10 @@
 
     .container {
       max-width: 800px;
-      margin: 0;
+      margin: 0 auto;
       text-align: center;
+      transform-origin: center center;
+      transform: scale(var(--content-scale, 1));
     }
 
     h1 {
@@ -323,17 +325,18 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background: rgba(255,255,255,0.15); /* adjust opacity here */
+      background: rgba(255,255,255,0.15);
       pointer-events: none;
     }
     .split-right {
       background: var(--background-color);
       overflow-y: auto;
-    }
-    .container {
-      max-width: 800px;
-      margin: 0 auto;
-      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0;
+      min-height: 0;
+      height: 100vh;
     }
     @media (max-width: 900px) {
       .split-wrapper {
@@ -422,6 +425,27 @@
 
     // Initialize i18next
     window.addEventListener('load', function() {
+      // Add resize handler to scale content
+      function updateContentScale() {
+        const container = document.querySelector('.container');
+        const rightSection = document.querySelector('.split-right');
+        const containerHeight = container.scrollHeight;
+        const availableHeight = rightSection.clientHeight - 40; // 40px for padding
+        
+        if (containerHeight > availableHeight) {
+          const scale = availableHeight / containerHeight;
+          container.style.setProperty('--content-scale', scale);
+        } else {
+          container.style.setProperty('--content-scale', 1);
+        }
+      }
+
+      // Initial scale
+      updateContentScale();
+      
+      // Update scale on resize
+      window.addEventListener('resize', updateContentScale);
+
       i18next
         .use(i18nextBrowserLanguageDetector)
         .init({
@@ -434,6 +458,8 @@
           jqueryI18next.init(i18next, $, { useOptionsAttr: true });
           // Localize the page
           $('body').localize();
+          // Update scale after content is loaded
+          updateContentScale();
         });
     });
   </script>
