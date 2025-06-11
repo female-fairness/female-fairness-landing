@@ -317,6 +317,7 @@
       background: #f7f3f0 url('assets/flower-bg.png') center center/cover no-repeat;
       position: relative;
       overflow: hidden;
+      height: 100vh;
     }
     .split-left::after {
       content: '';
@@ -341,24 +342,50 @@
     @media (max-width: 900px) {
       .split-wrapper {
         flex-direction: column;
+        height: auto;
+        min-height: 100vh;
+        width: 100%;
+        margin: 0;
+        padding: 0;
       }
       .split-left, .split-right {
-        width: 100vw;
-        height: 50vh;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+      }
+      .split-left {
+        height: 25vh !important;
+        min-height: 100px !important;
+        max-height: 25vh !important;
+        background-size: cover;
+        background-position: center;
+      }
+      .split-left::after {
+        height: 100%;
       }
       .container {
         max-width: 95vw;
         transform: none !important;
         margin: 0 auto;
+        height: auto;
+        overflow: visible;
+        padding: 0 1rem;
       }
       .split-right {
         display: block;
-        align-items: initial;
-        justify-content: initial;
         height: auto;
         min-height: 0;
-        overflow-y: auto;
+        overflow: visible;
         padding: 1.5rem 0;
+      }
+      body {
+        overflow-y: auto;
+        height: auto;
+        min-height: 100vh;
+        display: block;
+        margin: 0;
+        padding: 0;
+        width: 100%;
       }
     }
 
