@@ -504,7 +504,12 @@
           debug: true,
           fallbackLng: 'da',
           resources: resources,
-          load: 'languageOnly'
+          load: 'languageOnly',
+          detection: {
+            order: ['querystring', 'localStorage', 'navigator'],
+            lookupQuerystring: 'lang',
+            caches: ['localStorage']
+          }
         }).then(function(t) {
           // Initialize jquery-i18next
           jqueryI18next.init(i18next, $, { useOptionsAttr: true });
